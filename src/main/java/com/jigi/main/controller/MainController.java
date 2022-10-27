@@ -1,7 +1,6 @@
 package com.jigi.main.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -16,7 +15,31 @@ public class MainController {
 
     @RequestMapping("/api/goBoard")
     public String goBoard(){
-        System.out.println("요청은 들어오니..? 나중엔 log를 찍을거에요");
+        System.out.println("/api/goBoard 요청은 들어오니..? 나중엔 log를 찍을거에요");
         return "main/board";
+    }
+
+    @RequestMapping("/api/goUserInsert")
+    public String goInsertUser(){
+        System.out.println("/api/goUserInsert 요청은 들어오니..? 나중엔 log를 찍을거에요");
+        return "main/userInsert";
+    }
+
+    @RequestMapping("/api/goUserLogin")
+    public String goUserLogin(){
+        System.out.println("/api/goUserLogin 요청은 들어오니..? 나중엔 log를 찍을거에요");
+        return "main/userLogin";
+    }
+
+    @RequestMapping("/api/goBoardGuest")
+    public String goBoardGuest(){
+        System.out.println("/api/goBoardGuest 요청은 들어오니..? 나중엔 log를 찍을거에요");
+        return "main/boardGuest";
+    }
+
+    @RequestMapping("/api/goBoardNotice")
+    public String goBoardNotice(){
+        System.out.println("/api/goBoardNotice 요청은 들어오니..? 나중엔 log를 찍을거에요");
+        return "main/boardNotice";
     }
 }
