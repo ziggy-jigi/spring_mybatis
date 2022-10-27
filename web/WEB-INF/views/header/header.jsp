@@ -26,7 +26,7 @@
         <a class="nav-link" href="/api/goBoardGuest">방명록</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/api/goBoardNotice">공지사항?</a>
+        <a class="nav-link" href="/api/goBoardNotice">공지사항</a>
       </li>
     </ul>
     <ul class="navbar-nav navbar-right">
