@@ -19,11 +19,8 @@
     <h2>회원가입</h2>
     <form action="/action_page.php">
         <div class="mb-3 mt-3">
-            <div class="row">
-                <label for="email">이메일 아이디:</label>
-                <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
-                <button type="submit" class="btn btn-warning">중복체크</button>
-            </div>
+            <label for="email">이메일 아이디:</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
         </div>
         <div class="mb-3">
             <label for="pwd">비밀번호:</label>
