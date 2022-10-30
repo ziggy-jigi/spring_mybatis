@@ -15,7 +15,7 @@ public class UserServiceImpl implements UserService{
     private UserService userService;
 
     @Override
-    public void insertUser(UserDto userDto) throws Exception {
+    public void insertUser(UserDto userDto) {
         userService.insertUser(userDto);
     }
 }

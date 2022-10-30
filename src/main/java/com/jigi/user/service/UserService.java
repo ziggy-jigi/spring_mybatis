@@ -6,13 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
 
-@Service
-public class UserService {
 
-    @Autowired
-    UserMapper userMapper;
+public interface UserService {
 
-    public void insertUser(UserDto userDto){
-        userMapper.insertUser(userDto);
-    }
+
+    public void insertUser(UserDto userDto);
 }

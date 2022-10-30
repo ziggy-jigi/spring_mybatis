@@ -6,11 +6,11 @@
 <!--    <typeAliases>-->
 <!--        <typeAlias alias="UserDto" type="com.jigi.user.dto.UserDto" />-->
 <!--    </typeAliases>-->
-    <typeAliases>
-        <package name="user"/>
-    </typeAliases>
-    <mappers>
-        <mapper resource="mapper/userMapper.xml" />
-    </mappers>
+<!--    <typeAliases>-->
+<!--        <package name="user"/>-->
+<!--    </typeAliases>-->
+<!--    <mappers>-->
+<!--        <mapper resource="mapper/userMapper.xml" />-->
+<!--    </mappers>-->
 
 </configuration>
