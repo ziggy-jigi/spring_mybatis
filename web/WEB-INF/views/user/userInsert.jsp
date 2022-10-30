@@ -22,15 +22,15 @@
         <sec:csrfInput/>
         <div class="mb-3 mt-3">
             <label for="email">이메일 아이디:</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+            <input type="email" class="form-control" id="email" placeholder="Enter email" name="user_email">
         </div>
         <div class="mb-3">
             <label for="pwd">비밀번호:</label>
-            <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+            <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="user_password">
         </div>
         <div class="mb-3">
             <label for="name">이름:</label>
-            <input type="text" class="form-control" id="name" placeholder="Enter name" name="name">
+            <input type="text" class="form-control" id="name" placeholder="Enter name" name="user_name">
         </div>
 
         <button type="submit" class="btn btn-primary">회원가입</button>

@@ -15,10 +15,16 @@ public class UserController {
 
     @RequestMapping(value = "/api/userInsert", method = RequestMethod.POST)
     public String insertUser(UserDto userDto) throws Exception {
-        System.out.println("/api/userInsert 요청은 들어오니..? 나중엔 log를 찍을거에요");
-        System.out.println("userDto : " + userDto);
-        userService.insertUser(userDto);
+        System.out.println("/api/userInsert 회원가입 요청은 들어오니..? 나중엔 log를 찍을거에요");
 
-        return "user/userInsertAfter";
+        try{
+            userService.insertUser(userDto);
+            return "user/userInsertAfter";
+        }catch (Exception e){
+            e.printStackTrace();
+            return "user/userInsertFail";
+        }
+
+
     }
 }

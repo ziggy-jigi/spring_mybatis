@@ -6,9 +6,9 @@
 <!--    <typeAliases>-->
 <!--        <typeAlias alias="UserDto" type="com.jigi.user.dto.UserDto" />-->
 <!--    </typeAliases>-->
-<!--    <typeAliases>-->
-<!--        <package name="user"/>-->
-<!--    </typeAliases>-->
+<!--&lt;!&ndash;    <typeAliases>&ndash;&gt;-->
+<!--&lt;!&ndash;        <package name="user"/>&ndash;&gt;-->
+<!--&lt;!&ndash;    </typeAliases>&ndash;&gt;-->
 <!--    <mappers>-->
 <!--        <mapper resource="mapper/userMapper.xml" />-->
 <!--    </mappers>-->
