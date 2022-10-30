@@ -6,6 +6,7 @@
 
 <mapper namespace="userMapper">
 
+
     <insert id="insertUser">
         insert into useruser(
             user_email, user_password, user_name, sign_up_date, authority, enabled) values
