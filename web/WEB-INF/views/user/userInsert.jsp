@@ -28,6 +28,10 @@
             <label for="pwd">비밀번호:</label>
             <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
         </div>
+        <div class="mb-3">
+            <label for="name">이름:</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter name" name="name">
+        </div>
 
         <button type="submit" class="btn btn-primary">회원가입</button>
     </form>
