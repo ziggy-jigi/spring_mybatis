@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class MainController {
 
+    /**
+     * 경로 이동만을 위한 MainController
+     **/
     @RequestMapping("/")
     public String goMain(){
 //  public String main(Model model){
@@ -22,13 +25,13 @@ public class MainController {
     @RequestMapping("/api/goUserInsert")
     public String goInsertUser(){
         System.out.println("/api/goUserInsert 요청은 들어오니..? 나중엔 log를 찍을거에요");
-        return "main/userInsert";
+        return "user/userInsert";
     }
 
     @RequestMapping("/api/goUserLogin")
     public String goUserLogin(){
         System.out.println("/api/goUserLogin 요청은 들어오니..? 나중엔 log를 찍을거에요");
-        return "main/userLogin";
+        return "user/userLogin";
     }
 
     @RequestMapping("/api/goBoardGuest")

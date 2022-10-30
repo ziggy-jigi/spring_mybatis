@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapper namespace="com.jigi.user.mapper.UserMapper">
+    <insert id="insertUser" parameterType="UserDto">
+        insert into useruser(
+            user_email, user_password, user_name, sign_up_date, authority, enabled) values
+        (#{user_email}, #{user_password}, #{user_name}, sysdate, 'role_user', 1)
+    </insert>
+</mapper>

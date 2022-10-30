@@ -1,7 +1,12 @@
-create table useruser(
-user_email varchar2(50) not null primary key, -- 나중에 소셜로그인해보려고 이메일로 아이디만들어보려구요..
-user_password varchar2(50) not null, -- 비밀번호
-nick_name varchar2(30) not null, -- 인터넷의 장점은 가명아니겠습니까 ㅎㅎ
-sign_up_date default sysdate -- 회원가입일
-admin_yn int 아님 number 인데... default 0 -- 관리자 여부?
+create user springMybatis identified by oracle;
+grant connect, dba, resource to springMybatis;
+
+create table useruser
+(
+    user_email    varchar2(50) not null primary key,
+    user_password varchar2(50) not null,
+    user_name     varchar2(30) not null,
+    sign_up_date  date         default sysdate,
+    authority     varchar2(50) default 'role_user',
+    enabled       number       default '1'
 );
