@@ -36,7 +36,11 @@
         <button type="submit" class="btn btn-primary">회원가입</button>
     </form>
 </div>
-
+<p>해야할 일 : </p>
+<p>이메일 아이디 중복 체크 프라이머리키</p>
+<p>공백 입력시 에러나는데 이것도 해결</p>
+<p>비밀번호 암호화</p>
+<p></p>
 <div class="col-sm-4"></div>
 
 </body>
