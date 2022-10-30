@@ -6,5 +6,5 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface UserMapper {
     UserDto getUserById(String user_email);
-    void insertUser(UserDto userDto);
+    void insertUser(UserDto userDto) throws Exception;
 }
