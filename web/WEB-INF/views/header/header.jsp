@@ -28,6 +28,9 @@
       <li class="nav-item">
         <a class="nav-link" href="/api/goBoardNotice">공지사항</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">마이바티스 및 조인문 연습하려고 하는데 어떤 기능을 할지...</a>
+      </li>
     </ul>
     <ul class="navbar-nav navbar-right">
       <li class="nav-item">
