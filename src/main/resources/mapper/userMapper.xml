@@ -7,6 +7,10 @@
     <insert id="insertUser">
         insert into useruser(
             user_email, user_password, user_name, sign_up_date, authority, enabled) values
-        (#{user_email}, #{user_password}, #{user_name}, sysdate, 'role_user', 1)
+        (#{user_email}, #{user_password}, #{user_name}, sysdate, 'role_user', 1);
     </insert>
+
+    <select id="insertUserCheck">
+        select count(*) from useruser where user_email = #{user_email};
+    </select>
 </mapper>

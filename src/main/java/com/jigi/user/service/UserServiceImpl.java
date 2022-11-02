@@ -20,4 +20,9 @@ public class UserServiceImpl implements UserService{
         System.out.println("여긴 타긴 타나");
         userMapper.insertUser(userDto);
     }
+
+    @Override
+    public int insertUserCheck(UserDto userDto) throws Exception {
+        return userMapper.insertUserCheck(userDto);
+    }
 }

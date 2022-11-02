@@ -24,6 +24,7 @@
         <div class="mb-3 mt-3">
             <label for="email">이메일 아이디:</label>
             <input type="email" class="form-control" id="email" placeholder="Enter email" name="user_email">
+            <button class="btn btn-warning">이메일_아이디 중복 체크</button>
         </div>
         <div class="mb-3">
             <label for="pwd">비밀번호:</label>
@@ -43,7 +44,7 @@
 <p>3.비밀번호 암호화</p>
 <p>4.이메일 아이디 좀 올바르게 ~~~@~~~.com 형식 맞춰서 데이터 넣을 수 있게</p>
 <p>5.비밀번호 글자 수 3자리 이상(특수문자는 구현만 해놓고 주석처리)</p>
-<p>6.이름은 3글자 이상(이름도 중복체크 해야하나....?)</p>
+<p>6.이름은 3글자 이상(이름도 중복체크 해야하나....?)--> 그냥 화면단에서 가능할듯</p>
 <p>7.좀 다양한 컬럼들 추가 시켜서 디비 디비 좀 더 아름답게</p>
 <div class="col-sm-4"></div>
 
@@ -51,6 +52,11 @@
 </html>
 
 <script>
+    // function submitIdCheck(){
+    //     if(document.getElementById('email').value == ''){
+    //
+    //     }
+    // }
     function submitNullCheck(){ // 왜 fn 이름을 submit()으로 하면 에러가 나지.....?
         if(document.getElementById('email').value == ''){
             alert('email 공백');

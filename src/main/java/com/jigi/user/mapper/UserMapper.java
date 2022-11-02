@@ -6,6 +6,7 @@ import org.mybatis.spring.annotation.MapperScan;
 
 
 public interface UserMapper {
-    UserDto getUserById(String user_email);
     public void insertUser(UserDto userDto) throws Exception;
+
+    public int insertUserCheck(UserDto userDto) throws Exception;
 }

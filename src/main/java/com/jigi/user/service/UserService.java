@@ -7,4 +7,6 @@ public interface UserService {
 
     public void insertUser(UserDto userDto) throws Exception;
 
+    public int insertUserCheck(UserDto userDto) throws Exception;
+
 }

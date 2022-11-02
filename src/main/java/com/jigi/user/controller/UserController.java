@@ -16,7 +16,7 @@ public class UserController {
     @RequestMapping(value = "/api/userInsert", method = RequestMethod.POST)
     public String insertUser(UserDto userDto) throws Exception {
         System.out.println("/api/userInsert 회원가입 요청은 들어오니..? 나중엔 log를 찍을거에요");
-
+        //int checkYn =  userService.insertUserCheck(userDto); 에 따라 if문 적용하고 회원가입 시키면 될듯
         try{
             userService.insertUser(userDto);
             return "user/userInsertAfter";
@@ -24,7 +24,12 @@ public class UserController {
             e.printStackTrace();
             return "user/userInsertFail";
         }
-
-
     }
+    @RequestMapping(value = "/api/userInsertCheck", method = RequestMethod.POST)
+    public int insertUserCheck(UserDto userDto) throws Exception {
+        int checkYn =  userService.insertUserCheck(userDto);
+        return checkYn;
+    }
+
+
 }
