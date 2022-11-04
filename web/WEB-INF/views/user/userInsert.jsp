@@ -10,8 +10,7 @@
 <html>
 <head>
     <title>Title</title>
-    <meta id="_csrf" name="_csrf" content="${_csrf.token}"/>
-    <meta id="_csrf_header" name="_csrf_header" content="${_csrf.headerName}"/>
+
 </head>
 <body>
 <%@include file="../header/header.jsp"%>
