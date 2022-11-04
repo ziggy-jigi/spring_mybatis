@@ -10,7 +10,7 @@
         (#{user_email}, #{user_password}, #{user_name}, sysdate, 'role_user', 1);
     </insert>
 
-    <select id="insertUserCheck">
-        select count(*) from useruser where user_email = #{user_email};
+    <select id="insertUserCheck" resultType="int">
+        select count(*) from useruser where user_email = #{user_email}
     </select>
 </mapper>

@@ -19,24 +19,24 @@
 
 <div class="container mt-3 col-sm-4">
     <h2>회원가입</h2>
-    <form action="/api/userInsert" method="post" onsubmit="return submitNullCheck()">
-        <sec:csrfInput/>
-        <div class="mb-3 mt-3">
-            <label for="email">이메일 아이디:</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter email" name="user_email">
-            <button class="btn btn-warning">이메일_아이디 중복 체크</button>
-        </div>
-        <div class="mb-3">
-            <label for="pwd">비밀번호:</label>
-            <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="user_password">
-        </div>
-        <div class="mb-3">
-            <label for="name">이름:</label>
-            <input type="text" class="form-control" id="name" placeholder="Enter name" name="user_name">
-        </div>
+    <sec:csrfInput/>
+    <div class="mb-3 mt-3">
+        <label for="email">이메일 아이디:</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter email" name="user_email">
+        <button id="insertUserCheck" class="btn btn-warning">이메일_아이디 중복 체크</button>
+    </div>
+    <div class="mb-3">
+        <label for="pwd">비밀번호:</label>
+        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="user_password">
+    </div>
+    <div class="mb-3">
+        <label for="name">이름:</label>
+        <input type="text" class="form-control" id="name" placeholder="Enter name" name="user_name">
+    </div>
 
-        <button type="submit" class="btn btn-primary">회원가입</button>
-    </form>
+    <button type="submit" class="btn btn-primary">회원가입</button>
+
+
 </div>
 <p>해야할 일 : </p>
 <p>1.이메일 아이디 중복 체크</p>
@@ -52,22 +52,43 @@
 </html>
 
 <script>
+    $('#insertUserCheck').click(function () {
+        let userEmail = $('#email').val();
+// alert(userEmail);
+        $.ajax({
+            type :'POST',
+            url: '/api/user/userInsertCheck',
+            data:  {
+                userEmail : userEmail
+            },
+            dataType: "json",
+            success : function (result){
+                if(result == 1){
+                    alert('사용불가능')
+                }else{
+                    alert('사용가능')
+                }
+            }
+        })
+    });
+
+
     // function submitIdCheck(){
     //     if(document.getElementById('email').value == ''){
     //
     //     }
     // }
-    function submitNullCheck(){ // 왜 fn 이름을 submit()으로 하면 에러가 나지.....?
-        if(document.getElementById('email').value == ''){
-            alert('email 공백');
-            return false;
-        }else if(document.getElementById('pwd').value == ''){
-            alert('pwd 공백');
-            return false;
-        }else if(document.getElementById('name').value == ''){
-            alert('name 공백');
-            return false;
-        }
-        return true;
-    }
+    // function submitNullCheck(){ // 왜 fn 이름을 submit()으로 하면 에러가 나지.....?
+    //     if(document.getElementById('email').value == ''){
+    //         alert('email 공백');
+    //         return false;
+    //     }else if(document.getElementById('pwd').value == ''){
+    //         alert('pwd 공백');
+    //         return false;
+    //     }else if(document.getElementById('name').value == ''){
+    //         alert('name 공백');
+    //         return false;
+    //     }
+    //     return true;
+    // }
 </script>

@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class UserController {
@@ -13,7 +15,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/api/userInsert", method = RequestMethod.POST)
+    @RequestMapping(value = "/api/user/userInsert", method = RequestMethod.POST)
     public String insertUser(UserDto userDto) throws Exception {
         System.out.println("/api/userInsert 회원가입 요청은 들어오니..? 나중엔 log를 찍을거에요");
         //int checkYn =  userService.insertUserCheck(userDto); 에 따라 if문 적용하고 회원가입 시키면 될듯
@@ -25,11 +27,19 @@ public class UserController {
             return "user/userInsertFail";
         }
     }
-    @RequestMapping(value = "/api/userInsertCheck", method = RequestMethod.POST)
-    public int insertUserCheck(UserDto userDto) throws Exception {
+    @ResponseBody
+    @RequestMapping(value = "/api/user/userInsertCheck", method = RequestMethod.POST)
+    public int insertUserCheck(@RequestParam("userEmail") String userDto) throws Exception {
+        System.out.println("/api/user/userInsertCheck 중복체크 요청은 들어오니..? 나중엔 log를 찍을거에요");
         int checkYn =  userService.insertUserCheck(userDto);
         return checkYn;
     }
+
+//    @RequestMapping(value = "/api/userLogin", method = RequestMethod.POST)
+//    public String insertLogin(UserDto userDto) throws Exception {
+//        userService.userLogin(userDto);
+//        return "main/main";
+//    }
 
 
 }

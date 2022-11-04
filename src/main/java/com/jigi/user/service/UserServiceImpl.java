@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Repository
 public class UserServiceImpl implements UserService{
 
     @Autowired
@@ -22,7 +23,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public int insertUserCheck(UserDto userDto) throws Exception {
+    public int insertUserCheck(String userDto) throws Exception {
         return userMapper.insertUserCheck(userDto);
     }
 }
