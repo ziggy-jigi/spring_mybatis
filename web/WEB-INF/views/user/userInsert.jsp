@@ -34,7 +34,7 @@
         <input type="text" class="form-control" id="name" placeholder="Enter name" name="user_name">
     </div>
 
-    <button type="submit" class="btn btn-primary">회원가입</button>
+    <button in="insertUser" class="btn btn-primary">회원가입</button>
 
 
 </div>
@@ -52,16 +52,18 @@
 </html>
 
 <script>
-    $('#insertUserCheck').click(function () {
-        let userEmail = $('#email').val();
-        var token = $("meta[name='_csrf']").attr("content");
-        var header = $("meta[name='_csrf_header']").attr("content");
-        $(function() {
-            $(document).ajaxSend(function(e, xhr, options) {
-                xhr.setRequestHeader(header, token);
-            });
+    let token = $("meta[name='_csrf']").attr("content");
+    let header = $("meta[name='_csrf_header']").attr("content");
+
+    $(function() {
+        $(document).ajaxSend(function(e, xhr, options) {
+            xhr.setRequestHeader(header, token);
         });
-// alert(userEmail);
+    });
+
+    $('#insertUserCheck').click(function () {
+        const userEmail = $('#email').val();
+
         $.ajax({
             type :'POST',
             url: '/api/user/userInsertCheck',
@@ -82,6 +84,17 @@
         })
     });
 
+    $('#insertUser').click(function (){
+        const userEmail = $('#email').val();
+        const pwd = $('#pwd').val();
+        const name = $('#name').val();
+
+        $.ajax({
+
+        })
+
+
+    })
 
     // function submitIdCheck(){
     //     if(document.getElementById('email').value == ''){
