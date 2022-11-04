@@ -10,7 +10,8 @@
 <html>
 <head>
     <title>Title</title>
-
+    <meta id="_csrf" name="_csrf" content="${_csrf.token}"/>
+    <meta id="_csrf_header" name="_csrf_header" content="${_csrf.headerName}"/>
 </head>
 <body>
 <%@include file="../header/header.jsp"%>
@@ -19,7 +20,7 @@
 
 <div class="container mt-3 col-sm-4">
     <h2>회원가입</h2>
-    <sec:csrfInput/>
+<%--    <sec:csrfInput/>--%>
     <div class="mb-3 mt-3">
         <label for="email">이메일 아이디:</label>
         <input type="email" class="form-control" id="email" placeholder="Enter email" name="user_email">
@@ -54,6 +55,13 @@
 <script>
     $('#insertUserCheck').click(function () {
         let userEmail = $('#email').val();
+        var token = $("meta[name='_csrf']").attr("content");
+        var header = $("meta[name='_csrf_header']").attr("content");
+        $(function() {
+            $(document).ajaxSend(function(e, xhr, options) {
+                xhr.setRequestHeader(header, token);
+            });
+        });
 // alert(userEmail);
         $.ajax({
             type :'POST',
@@ -62,6 +70,9 @@
                 userEmail : userEmail
             },
             dataType: "json",
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader(header, token);
+            },
             success : function (result){
                 if(result == 1){
                     alert('사용불가능')
