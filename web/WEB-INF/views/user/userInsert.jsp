@@ -19,7 +19,7 @@
 
 <div class="container mt-3 col-sm-4">
     <h2>회원가입</h2>
-<%--    <sec:csrfInput/>--%>
+    <sec:csrfInput/>
     <div class="mb-3 mt-3">
         <label for="email">이메일 아이디:</label>
         <input type="email" class="form-control" id="email" placeholder="Enter email" name="user_email">
@@ -27,11 +27,11 @@
     </div>
     <div class="mb-3">
         <label for="pwd">비밀번호:</label>
-        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="user_password">
+        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="user_password" minlength = "3">
     </div>
     <div class="mb-3">
         <label for="name">이름:</label>
-        <input type="text" class="form-control" id="name" placeholder="Enter name" name="user_name">
+        <input type="text" class="form-control" id="name" placeholder="Enter name" name="user_name" minlength = "2">
     </div>
 
     <button id="insertUser" class="btn btn-primary">회원가입</button>
@@ -53,84 +53,108 @@
 </html>
 
 <script>
-    let token = $("meta[name='_csrf']").attr("content");
-    let header = $("meta[name='_csrf_header']").attr("content");
+    $(document).ready(function () {
+        let token = $("meta[name='_csrf']").attr("content");
+        let header = $("meta[name='_csrf_header']").attr("content");
 
-    $(function() {
-        $(document).ajaxSend(function(e, xhr, options) {
-            xhr.setRequestHeader(header, token);
-        });
-    });
-
-    $('#insertUserCheck').click(function () {
-        const userEmail = $('#email').val();
-
-        if(userEmail == ''){
-            alert('적고 ~')
-            return false;
-        }
-
-        $.ajax({
-            type :'POST',
-            url: '/api/user/userInsertCheck',
-            data:  {
-                userEmail : userEmail
-            },
-            dataType: "json",
-            beforeSend: function (xhr) {
+        $(function() {
+            $(document).ajaxSend(function(e, xhr, options) {
                 xhr.setRequestHeader(header, token);
-            },
-            success : function (result){
-                if(result == 1){
-                    alert('사용불가능')
-                }else{
-                    alert('사용가능')
-                }
+            });
+        });
+
+        $('#insertUserCheck').click(function () {
+            const userEmail = $('#email').val();
+
+            if(userEmail == ''){
+                alert('적고 ~')
+                return false;
             }
+
+            $.ajax({
+                type :'POST',
+                url: '/api/user/userInsertCheck',
+                data:  {
+                    userEmail : userEmail
+                },
+                dataType: "json",
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader(header, token);
+                },
+                success : function (result){
+                    if(result == 1){
+                        alert('사용불가능')
+                    }else{
+                        alert('사용가능')
+                    }
+                }
+            })
+        });
+
+        $('#insertUser').click(function (){
+            if(document.getElementById('email').value == ''){
+                alert('email 공백');
+                return false;
+            }else if(document.getElementById('pwd').value == ''){
+                alert('pwd 공백');
+                return false;
+            }else if(document.getElementById('name').value == ''){
+                alert('name 공백');
+                return false;
+            }
+            const userEmail = $('#email').val();
+            const pwd = $('#pwd').val();
+            const name = $('#name').val();
+            let data ={
+                user_email : userEmail,
+                user_password : pwd,
+                user_name : name
+            };
+
+
+            $.ajax({
+                type :'POST',
+                url: '/api/user/userInsert',
+                data: JSON.stringify(data),
+                dataType: 'text',
+                contentType: "application/json;  charset=utf-8",
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader(header, token);
+                },
+                success : function (){
+                    alert('회원가입 성공')
+                },
+                error : function (){
+                    alert('에러')
+                }
+            })
+
+            //
+            // $.ajax({
+            //
+            // })
+
+
         })
-    });
 
-    $('#insertUser').click(function (){
-        if(document.getElementById('email').value == ''){
-            alert('email 공백');
-            return false;
-        }else if(document.getElementById('pwd').value == ''){
-            alert('pwd 공백');
-            return false;
-        }else if(document.getElementById('name').value == ''){
-            alert('name 공백');
-            return false;
-        }
-        return true;
-
-
-        // const userEmail = $('#email').val();
-        // const pwd = $('#pwd').val();
-        // const name = $('#name').val();
+        // function submitIdCheck(){
+        //     if(document.getElementById('email').value == ''){
         //
-        // $.ajax({
-        //
-        // })
-
-
+        //     }
+        // }
+        // function submitNullCheck(){ // 왜 fn 이름을 submit()으로 하면 에러가 나지.....?
+        //     if(document.getElementById('email').value == ''){
+        //         alert('email 공백');
+        //         return false;
+        //     }else if(document.getElementById('pwd').value == ''){
+        //         alert('pwd 공백');
+        //         return false;
+        //     }else if(document.getElementById('name').value == ''){
+        //         alert('name 공백');
+        //         return false;
+        //     }
+        //     return true;
+        // }
     })
 
-    // function submitIdCheck(){
-    //     if(document.getElementById('email').value == ''){
-    //
-    //     }
-    // }
-    // function submitNullCheck(){ // 왜 fn 이름을 submit()으로 하면 에러가 나지.....?
-    //     if(document.getElementById('email').value == ''){
-    //         alert('email 공백');
-    //         return false;
-    //     }else if(document.getElementById('pwd').value == ''){
-    //         alert('pwd 공백');
-    //         return false;
-    //     }else if(document.getElementById('name').value == ''){
-    //         alert('name 공백');
-    //         return false;
-    //     }
-    //     return true;
-    // }
 </script>

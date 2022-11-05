@@ -10,6 +10,9 @@ public class UserDto {
     private String authority;
     private int enabled;
 
+    public UserDto() {
+    }
+
     public String getUser_email() {
         return user_email;
     }
