@@ -34,7 +34,7 @@
         <input type="text" class="form-control" id="name" placeholder="Enter name" name="user_name">
     </div>
 
-    <button in="insertUser" class="btn btn-primary">회원가입</button>
+    <button id="insertUser" class="btn btn-primary">회원가입</button>
 
 
 </div>
@@ -46,6 +46,7 @@
 <p>5.비밀번호 글자 수 3자리 이상(특수문자는 구현만 해놓고 주석처리)</p>
 <p>6.이름은 3글자 이상(이름도 중복체크 해야하나....?)--> 그냥 화면단에서 가능할듯</p>
 <p>7.좀 다양한 컬럼들 추가 시켜서 디비 디비 좀 더 아름답게</p>
+<p>js 밖으로 빼려면 리소스폴더에 넣나 아님 웹폴더에 넣나.......??</p>
 <div class="col-sm-4"></div>
 
 </body>
@@ -63,6 +64,11 @@
 
     $('#insertUserCheck').click(function () {
         const userEmail = $('#email').val();
+
+        if(userEmail == ''){
+            alert('적고 ~')
+            return false;
+        }
 
         $.ajax({
             type :'POST',
@@ -85,13 +91,26 @@
     });
 
     $('#insertUser').click(function (){
-        const userEmail = $('#email').val();
-        const pwd = $('#pwd').val();
-        const name = $('#name').val();
+        if(document.getElementById('email').value == ''){
+            alert('email 공백');
+            return false;
+        }else if(document.getElementById('pwd').value == ''){
+            alert('pwd 공백');
+            return false;
+        }else if(document.getElementById('name').value == ''){
+            alert('name 공백');
+            return false;
+        }
+        return true;
 
-        $.ajax({
 
-        })
+        // const userEmail = $('#email').val();
+        // const pwd = $('#pwd').val();
+        // const name = $('#name').val();
+        //
+        // $.ajax({
+        //
+        // })
 
 
     })
