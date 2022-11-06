@@ -23,6 +23,14 @@
         </authentication-provider>
     </authentication-manager>
 
+    <form-login
+            username-parameter="loginId"
+            password-parameter="loginPwd"
+            login-processing-url="/login"
+            login-page="/user/userLogin.do"
+            default-target-url="/"
+    />
+
 
 
 </beans:beans>
