@@ -38,11 +38,11 @@ public class UserController {
         return checkYn;
     }
 
-//    @RequestMapping(value = "/api/userLogin", method = RequestMethod.POST)
-//    public String insertLogin(UserDto userDto) throws Exception {
+    @RequestMapping(value = "/api/userLogin", method = RequestMethod.POST)
+    public String insertLogin(UserDto userDto) throws Exception {
 //        userService.userLogin(userDto);
-//        return "main/main";
-//    }
+        return "main/main";
+    }
 
 
 }

@@ -11,6 +11,22 @@
         <intercept-url pattern="/**" access="permitAll"/>
         <intercept-url pattern="/**/**" access="permitAll"/>
         <csrf disabled="false"/>
+
+        <form-login
+                username-parameter="loginId"
+                password-parameter="loginPwd"
+                login-processing-url="/api/userLogin"
+                login-page="/user/userLogin"
+                default-target-url="/"
+                authentication-failure-handler-ref="loginFailureHandler"
+                authentication-success-handler-ref="loginSuccessHandler"
+        />
+
+        <logout
+                logout-url="/api/userLogout"
+                invalidate-session="true"
+                logout-success-url="/"
+        />
     </http>
 
     <authentication-manager>
@@ -23,13 +39,6 @@
         </authentication-provider>
     </authentication-manager>
 
-    <form-login
-            username-parameter="loginId"
-            password-parameter="loginPwd"
-            login-processing-url="/login"
-            login-page="/user/userLogin.do"
-            default-target-url="/"
-    />
 
 
 
