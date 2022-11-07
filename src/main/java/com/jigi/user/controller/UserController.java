@@ -39,7 +39,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/api/userLogin", method = RequestMethod.POST)
-    public String insertLogin(UserDto userDto) throws Exception {
+    public String userLogin(UserDto userDto) throws Exception {
 //        userService.userLogin(userDto);
         return "main/main";
     }
