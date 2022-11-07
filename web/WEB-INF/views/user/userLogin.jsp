@@ -16,7 +16,7 @@
 
 <div class="container mt-3 col-sm-4">
     <h2>로그인</h2>
-    <form action="/api/userLogin" method="post">
+    <form role="form" action="/api/userLogin" method="post">
         <sec:csrfInput/>
         <div class="mb-3 mt-3">
             <label for="email">이메일 아이디:</label>
@@ -31,4 +31,10 @@
     </form>
 </div>
 </body>
+<script type="text/javascript">
+    $(".btn-primary").on("click", function(e) {
+        e.preventDefault();
+        $("form").submit();
+    });
+</script>
 </html>
