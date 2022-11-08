@@ -13,8 +13,8 @@
         <csrf disabled="false"/>
 
         <form-login
-                username-parameter="loginId"
-                password-parameter="loginPwd"
+                username-parameter="user_email"
+                password-parameter="user_password"
                 login-processing-url="/api/userLogin"
                 login-page="/user/userLogin"
                 default-target-url="/"/>

@@ -32,10 +32,4 @@
     </form>
 </div>
 </body>
-<script type="text/javascript">
-    $(".btn-primary").on("click", function(e) {
-        e.preventDefault();
-        $("form").submit();
-    });
-</script>
 </html>

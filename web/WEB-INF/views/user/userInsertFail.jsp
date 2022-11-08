@@ -12,6 +12,6 @@
 </head>
 <body>
 <%@include file="../header/header.jsp"%>
-회원가입 실패
+회원가입 실패 또는 로그인 에러 페이지
 </body>
 </html>
